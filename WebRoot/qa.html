@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>答题</title>
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #div-btn{
+           text-align: center;
+        }
+        #btn-ans{
+            text-align: center;
+            width: 150px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        	    /////////////
+        	    $.get("/weather/search",
+        	    		function(data,status){
+        	    		var o = eval('('+data+')');
+        	    		var q1 = o.question1;
+        	    		var q2 = o.question2;
+        	    		//var q3 = o.question3;
+        	    		//var q4 = o.question4;
+        	    	});
+          	    var standard="ABCD";
+        	    $("#t1").text("1+0=");
+        		$("#a11").html("A");
+        		//$("#t2").text("1+1");
+        		//$("#a22").html("B");
+        		//$("#t3").text("1+2");
+        		//$("#a33").html("C");
+        		//$("#t4").text("1+3");
+        		//$("#a44").html("D");
+        		//////////////
+        		
+        	    $("#btn-ans").click(function(){
+        			var s1 = $("input[name=radiobutton1]:checked").val();
+        			var s2 = $("input[name=radiobutton2]:checked").val();
+        			var s3 = $("input[name=radiobutton3]:checked").val();
+        			var s4 = $("input[name=radiobutton4]:checked").val();
+                alert("已交卷\n我的作答是:" + s1+s2+s3+s4 + "\n我的得分是: 100分" +"\n谢谢");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+<h3 align="center">第一题</h3>
+<p id="t1"> 题目有待从数据库提取 </p>
+    <input type="radio" name="radiobutton1" value="A" checked><span id="a11"> 选项有待从数据库提取  </span><br>
+    <input type="radio" name="radiobutton1" value="B"><span id="a12">2</span><br>
+    <input type="radio" name="radiobutton1" value="C"><span id="a13">3</span><br>
+    <input type="radio" name="radiobutton1" value="D"><span id="a14">4</span><br>
+<h3 align="center">第二题</h3>
+<p id="t2">1+1=</p>
+    <input type="radio" name="radiobutton2" value="A" checked><span id="a21">1</span><br>
+    <input type="radio" name="radiobutton2" value="B"><span id="a22">2</span><br>
+    <input type="radio" name="radiobutton2" value="C"><span id="a23">3</span><br>
+    <input type="radio" name="radiobutton2" value="D"><span id="a24">4</span><br>
+<h3 align="center">第三题</h3>
+<p id="t3">1+2=</p>
+    <input type="radio" name="radiobutton3" value="A" checked><span id="a31">1</span><br>
+    <input type="radio" name="radiobutton3" value="B"><span id="a32">2</span><br>
+    <input type="radio" name="radiobutton3" value="C"><span id="a33">3</span><br>
+    <input type="radio" name="radiobutton3" value="D"><span id="a34">4</span><br>
+<h3 align="center">第四题</h3>
+<p id="t4">1+3=</p>
+    <input type="radio" name="radiobutton4" value="A" checked><span id="a41">1</span><br>
+    <input type="radio" name="radiobutton4" value="B"><span id="a42">2</span><br>
+    <input type="radio" name="radiobutton4" value="C"><span id="a43">3</span><br>
+    <input type="radio" name="radiobutton4" value="D"><span id="a44">4</span><br>
+          
+    <br>
+    <div id="div-btn">
+    <button id="btn-ans" type="button" class="btn btn-success">交 卷</button>
+    </div>
+    <br>
+    <br>
+</div>
+</body>
+</html>
